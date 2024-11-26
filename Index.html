@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Formulaire adhésion/renouvelllement PickleBall - Elliot Perreault
+    </title>
+    <!-- the mistake is on purpose -->
+  </head>
+  <body>
+    <form>
+      <!-- Nom -->
+      <label for="nom">Nom:</label>
+      <input type="text" id="nom" />
+      <br />
+
+      <!-- Prénom -->
+      <label for="prenom">Prénom:</label>
+      <input type="text" id="prenom" />
+      <br />
+
+      <!-- Date de naissance -->
+      <label for="dateNaissance">Date de naissance:</label>
+      <input type="date" id="dateNaissance" required />
+      <br />
+
+      <!-- Genre -->
+      <p>Genre:</p>
+      <select name="genre" size="3" id="genre">
+        <option value="homme">Homme</option>
+        <option value="femme">Femme</option>
+        <option value="aucun">Non genré</option>
+      </select>
+      <br />
+
+      <!-- Type D'adhésion -->
+      <p>Type d'adhésion</p>
+      <input
+        type="radio"
+        name="adhesion"
+        id="renouvellement"
+        value="Renouvellement"
+      />
+      <label for="renouvellement">Renouvellement</label>
+
+      <input
+        type="radio"
+        name="adhesion"
+        id="nouvelleAd"
+        value="Nouvelle adhésion"
+      />
+      <label for="nouvelleAd">Nouvelle Adhésion</label>
+      <br />
+
+      <!-- forme physique -->
+      <p>Forme physique</p>
+
+      <input type="radio" name="forme" id="excellente" value="excellente" />
+      <label for="excellente">Excellente</label>
+
+      <input type="radio" name="forme" id="bonne" value="bonne" />
+      <label for="bonne">Bonne</label>
+
+      <input type="radio" name="forme" id="moyenne" value="moyenne" />
+      <label for="moyenne">Moyenne</label>
+
+      <input type="radio" name="forme" id="aucunSport" value="nulle" />
+      <label for="aucunSport">Ne pratique aucun sport</label>
+      <br />
+
+      <!-- Expérience -->
+      <p>Expérience</p>
+
+      <input type="radio" name="experience" id="expert" value="expert" />
+      <label for="expert">Expert</label>
+
+      <input type="radio" name="experience" id="tresBonne" value="tres bon" />
+      <label for="tresBonne">Très Bonne</label>
+
+      <input type="radio" name="experience" id="ok" value="bon" />
+      <label for="ok">Bonne</label>
+
+      <input type="radio" name="experience" id="aucune" value="nul" />
+      <label for="aucune">Aucune</label>
+      <br />
+
+      <!-- Commentaire -->
+      <p>Commentaire</p>
+      <input
+        type="text"
+        name="comment"
+        id="comment"
+        size="50"
+        placeholder="Entrez des commentaires si vous voulez..."
+      />
+      <br />
+      <br />
+
+      <!-- Soumettre -->
+      <button type="button" onclick="soumettreFormulaire()">Soumettre</button>
+    </form>
+    <script src="scripts/main.js"></script>
+    <!-- Code injected by live-server -->
+    <script>
+      // <![CDATA[  <-- For SVG support
+      if ("WebSocket" in window) {
+        (function () {
+          function refreshCSS() {
+            var sheets = [].slice.call(document.getElementsByTagName("link"));
+            var head = document.getElementsByTagName("head")[0];
+            for (var i = 0; i < sheets.length; ++i) {
+              var elem = sheets[i];
+              var parent = elem.parentElement || head;
+              parent.removeChild(elem);
+              var rel = elem.rel;
+              if (
+                (elem.href && typeof rel != "string") ||
+                rel.length == 0 ||
+                rel.toLowerCase() == "stylesheet"
+              ) {
+                var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, "");
+                elem.href =
+                  url +
+                  (url.indexOf("?") >= 0 ? "&" : "?") +
+                  "_cacheOverride=" +
+                  new Date().valueOf();
+              }
+              parent.appendChild(elem);
+            }
+          }
+          var protocol =
+            window.location.protocol === "http:" ? "ws://" : "wss://";
+          var address =
+            protocol + window.location.host + window.location.pathname + "/ws";
+          var socket = new WebSocket(address);
+          socket.onmessage = function (msg) {
+            if (msg.data == "reload") window.location.reload();
+            else if (msg.data == "refreshcss") refreshCSS();
+          };
+          if (
+            sessionStorage &&
+            !sessionStorage.getItem("IsThisFirstTime_Log_From_LiveServer")
+          ) {
+            console.log("Live reload enabled.");
+            sessionStorage.setItem("IsThisFirstTime_Log_From_LiveServer", true);
+          }
+        })();
+      } else {
+        console.error(
+          "Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading."
+        );
+      }
+      // ]]>
+    </script>
+  </body>
+</html>
